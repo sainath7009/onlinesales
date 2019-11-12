@@ -1,0 +1,49 @@
+{% include 'home.html' %}
+<table align="center">
+    <tr>
+        <th>
+            <table align="center">
+                <form action="/save_mer/" method="post">
+                    {% csrf_token %}
+                    <tr>
+                        <th>Idno</th>
+                        <th><input type="number" readonly required name="idno" value={{ key }}> </th>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th><input type="text" placeholder="name" required name="na" ></th>
+                    </tr>
+                    <tr>
+                        <th>Contact</th>
+                        <th><input type="number" placeholder="contact" required name="cno" ></th>
+                    </tr>
+                    <tr>
+                        <th>Email Id</th>
+                        <th><input type="email" placeholder="Email" required name="email"></th>
+                    </tr>
+                    <tr><th colspan="2"><button type="submit">Save</button> </th> </tr>
+                </form>
+
+            </table>
+        </th>
+        <th>
+            <table align="center" >
+                <tr>
+                    <th>Idno</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Delete</th>
+                </tr>
+                {% for x in data %}
+                <tr>
+                    <th>{{ x.m_idno }}</th>
+                    <th>{{ x.m_name }}</th>
+                    <th>{{ x.m_contact }}</th>
+                    <th>Delete
+                    </th>
+                </tr>
+                {% endfor %}
+            </table>
+        </th>
+    </tr>
+</table>

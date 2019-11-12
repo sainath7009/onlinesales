@@ -1,0 +1,23 @@
+{% include "heading.html" %}
+<form action="/login/" method="post">
+    {%  csrf_token %}
+    <table align="center" border="0" >
+        <tr>
+            <th colspan="2">Admin Login Page</th>
+        </tr>
+        <tr><td>User Name:</td>
+            <td><input type="text" placeholder="user name" name="un" required></td>
+        </tr>
+        <tr><td>User password:</td>
+            <td><input type="password" placeholder="user password" name="ups" required></td>
+        </tr>
+        <tr><th colspan="2"><button type="submit">log in</button> </th>
+        </tr>
+        {%  if error %}
+            <tr><th colspan="2" style=" color: red">{{ error }}</th></tr>
+        {% endif %}
+        {%  if error1 %}
+            <tr><th colspan="2" style="color: red">{{ error1 }}</th></tr>
+        {% endif %}
+    </table>
+</form>
